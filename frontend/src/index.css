@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+body {
+    @apply bg-gradient-to-b from-[#1a80e6] to-[#17212e] to-60% h-full;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
