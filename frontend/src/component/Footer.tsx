@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Footer(){
     return(
-        <div className=" text-white bg-black flex flex-col items-center rounded-[20px]">
+        <div className=" text-white bg-black flex flex-col items-center rounded-t-[20px]">
             <div className="sm:flex sm:flex-row flex flex-col sm:space-y-[50px] space-y-[30px] justify-between py-[50px] w-[80%] border-gray-800 border-b-2">
                 <div className=" flex flex-col sm:space-y-[30px] space-y-[20px]">
                     <h2 className=" font-semibold sm:text-[30px] text-[20px]">Our Social Links</h2>

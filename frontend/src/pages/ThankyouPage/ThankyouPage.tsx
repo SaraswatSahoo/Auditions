@@ -32,9 +32,9 @@ function ThankyouPage() {
 
     return(
         <Layout>
-            <div className='text-white text-[60px] font-semibold flex flex-col justify-center items-center mt-[50px]'>
+            <div className='text-white text-[30px] sm:text-[60px] font-semibold flex flex-col justify-center items-center mt-[50px]'>
                 <div className=" text-[#1AC0E6] my-[30px]">Thank You</div>
-                <div className='flex flex-col gap-2 h-[350px]'>
+                <div className='flex flex-col gap-2 h-[250px] sm:h-[350px]'>
                     <div id="headTitle" ref={Text} className=" h-full text-center"></div>
                 </div>
             </div>

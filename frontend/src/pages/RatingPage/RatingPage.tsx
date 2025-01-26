@@ -17,8 +17,8 @@ function RatingPage(){
 
     const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
-    const fieldClassName = " flex flex-col my-[20px]";
-    const titleClassName = " text-[30px] font-semibold ";
+    const fieldClassName = " flex flex-col my-0 sm:my-[20px] w-full";
+    const titleClassName = " text-[20px] sm:text-[30px] font-semibold ";
 
     //@ts-ignore
     function changeHandler(event: Event, value: number | number[], name: string) {
@@ -78,14 +78,14 @@ function RatingPage(){
     return(
         <Layout>
             <div className=" h-full flex justify-center items-center mt-[50px] mb-[80px]">
-                <div className=" bg-[#ffffff] py-[50px] px-[100px] rounded-[20px]">
-                    <span className=" text-[50px] font-semibold pb-[20px]">Ratings</span>
+                <div className=" bg-[#ffffff] py-[50px] sm:py-[80px] px-[30px] sm:px-[100px] rounded-[20px] flex flex-col justify-center items-center sm:justify-start sm:items-start">
+                    <span className=" text-[30px] sm:text-[50px] mb-[20px] font-semibold">Ratings</span>
 
                     {/* Creativity */}
 
                     <div className={fieldClassName}>
                         <span className={titleClassName}>Creativity</span>
-                        <div className="my-[20px] w-[500px]">
+                        <div className=" my-[10px] sm:my-[20px] w-[250px] sm:w-[500px]">
                             <Slider
                                 value={rating.creativity}
                                 step={1}
@@ -102,7 +102,7 @@ function RatingPage(){
 
                     <div className={fieldClassName}>
                         <span className={titleClassName}>Hardworking</span>
-                        <div className="my-[20px] w-[500px]">
+                        <div className="my-[20px] w-[250px] sm:w-[500px]">
                             <Slider
                                 value={rating.hardworking}
                                 step={1}
@@ -119,7 +119,7 @@ function RatingPage(){
 
                     <div className={fieldClassName}>
                         <span className={titleClassName}>Punctuality</span>
-                        <div className="my-[20px] w-[500px]">
+                        <div className="my-[20px] w-[250px] sm:w-[500px]">
                             <Slider
                                 value={rating.punctuality}
                                 step={1}
@@ -136,7 +136,7 @@ function RatingPage(){
 
                     <div className={fieldClassName}>
                         <span className={titleClassName}>Dedication</span>
-                        <div className="my-[20px] w-[500px]">
+                        <div className="my-[20px] w-[250px] sm:w-[500px]">
                             <Slider
                                 value={rating.dedication}
                                 step={1}
@@ -149,7 +149,7 @@ function RatingPage(){
                         
                     </div>
 
-                    <button onClick={submitHandler} className=" w-full text-[30px] text-white font-semibold bg-black flex justify-center items-center px-[8px] py-[8px] hover:scale-110 transition-all duration-300 ease-in-out mt-[40px] rounded-[10px]">Submit</button>
+                    <button onClick={submitHandler} className=" w-[85%] sm:w-full text-[20px] sm:text-[30px] text-white font-semibold bg-black flex justify-center items-center px-[8px] py-[8px] hover:scale-110 transition-all duration-300 ease-in-out mt-[40px] rounded-[10px]">Submit</button>
                 </div>
             </div>
         </Layout>

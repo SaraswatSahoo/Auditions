@@ -19,9 +19,9 @@ function RegistrationPage(){
 
     const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
-    const fieldClassName = " flex flex-col my-[20px]";
-    const titleClassName = " text-[30px] font-semibold ";
-    const inputClassName = "py-2.5 text-[20px] border-2 border-black focus:border-[#1AC0E6] px-2.5 my-2.5 rounded-lg outline-none";
+    const fieldClassName = " flex flex-col my-[10px] sm:my-[20px] w-[70%] sm:w-full";
+    const titleClassName = " text-[20px] sm:text-[30px] font-semibold ";
+    const inputClassName = " py-2.5 text-[15px] sm:text-[20px] border-2 border-black focus:border-[#1AC0E6] px-2.5 my-2.5 rounded-lg outline-none";
 
     function changeHandler(e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) {
         const { name, value } = e.target;
@@ -52,8 +52,8 @@ function RegistrationPage(){
     return(
         <Layout>
             <div className=" h-full flex justify-center items-center mt-[50px] mb-[80px]">
-                <div className=" bg-[#ffffff] py-[80px] px-[100px] rounded-[20px]">
-                    <span className=" text-[50px] font-semibold">Registration</span>
+                <div className=" bg-[#ffffff] py-[50px] sm:py-[80px] px-0 sm:px-[100px] rounded-[20px] flex flex-col justify-center items-center sm:justify-start sm:items-start">
+                    <span className=" text-[30px] sm:text-[50px] font-semibold">Registration</span>
 
                     {/* Name */}
 
@@ -105,7 +105,7 @@ function RegistrationPage(){
                     <div className={fieldClassName}>
                         <span className={titleClassName}>Department</span>
                         <select 
-                            className={inputClassName}
+                            className={inputClassName }
                             name="department"
                             value={formData.department}
                             onChange={changeHandler}
@@ -162,7 +162,7 @@ function RegistrationPage(){
                             ))}
                         </select>
                     </div>
-                    <button onClick={submitHandler} className=" w-full text-[30px] text-white font-semibold bg-black flex justify-center items-center px-[8px] py-[8px] hover:scale-110 transition-all duration-300 ease-in-out mt-[40px] rounded-[10px]">Next</button>
+                    <button onClick={submitHandler} className=" w-[70%] sm:w-full text-[20px] sm:text-[30px] text-white font-semibold bg-black flex justify-center items-center px-[8px] py-[8px] hover:scale-110 transition-all duration-300 ease-in-out mt-[40px] rounded-[10px]">Next</button>
                 </div>
             </div>
         </Layout>

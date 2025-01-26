@@ -4,7 +4,7 @@ import Logo from "../../public/mntc.png"
 function Header (){
 
     return(
-        <div className=" sm:px-[40px] px-[20px] py-[20px] flex justify-between items-center">
+        <div className=" sm:px-[40px] px-[10px] py-[20px] flex justify-between items-center">
             <Link to={"/"}>
                 <img src={Logo} alt="MNTC" className="sm:w-35 w-20"/>
             </Link>
