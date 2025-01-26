@@ -2,6 +2,7 @@ import { useState } from "react";
 import Layout from "../../component/Layout";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { ScaleLoader } from "react-spinners";
 
 function QuestionPage(){
 
@@ -10,6 +11,8 @@ function QuestionPage(){
         answer2: "",
         answer3: "",
     });
+
+    const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
 
@@ -28,27 +31,45 @@ function QuestionPage(){
     }
 
     async function submitHandler(){
-        console.log(`${BACKEND_URL}/questions`);
+
         //@ts-ignore
         const token = localStorage.getItem("token");
-        const response = await axios.put(`${BACKEND_URL}/questions`,{
-            answer1: answers.answer1,
-            answer2: answers.answer2,
-            answer3: answers.answer3,
-        },{
-            headers: {
-                //@ts-ignore
-                token: JSON.parse(token),
-            }
-        });
 
-        if(response.status === 200){
-            navigate("/rating");
+        try{
+
+            setLoading(true);
+
+            const response = await axios.put(`${BACKEND_URL}/questions`,{
+                answer1: answers.answer1,
+                answer2: answers.answer2,
+                answer3: answers.answer3,
+            },{
+                headers: {
+                    //@ts-ignore
+                    token: JSON.parse(token),
+                }
+            });
+
+            setLoading(false);
+
+            if(response.status === 200){
+                navigate("/rating");
+            }
+        } catch (e) {
+
+            console.log("There was an error" + e);
+
         }
+        
     }
 
     return(
         <Layout>
+            {loading && (
+                <div className="fixed inset-0 bg-black opacity-50 flex justify-center items-center z-50">
+                    <ScaleLoader color="#1AC0E6" loading={loading} />
+                </div>
+            )}
             <div className=" h-full flex justify-center items-center mt-[50px] mb-[80px]">
                 <div className=" bg-[#ffffff] py-[50px] sm:py-[80px] px-0 sm:px-[100px] rounded-[20px] flex flex-col justify-center items-center sm:justify-start sm:items-start">
                     <span className=" text-[30px] sm:text-[50px] font-semibold">Questions</span>

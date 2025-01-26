@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Layout from "../../component/Layout";
 import { departmentList, roleList } from "./data";
 import axios from "axios";
+import { ScaleLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
 
 function RegistrationPage(){
@@ -14,6 +15,8 @@ function RegistrationPage(){
         role1: "",
         role2: "",
     });
+
+    const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
 
@@ -32,25 +35,42 @@ function RegistrationPage(){
     }
 
     async function submitHandler(){
-        console.log(`${BACKEND_URL}/register`);
-        const response = await axios.post(`${BACKEND_URL}/register`,{
-            name: formData.name,
-            rollNum: formData.rollNum,
-            phoneNum: formData.rollNum,
-            department: formData.department,
-            role1: formData.role1,
-            role2: formData.role2,
-        });
 
-        localStorage.setItem("token", JSON.stringify(response.data.token));
+        setLoading(true);
+        
+        try{
 
-        if(response.status === 200){
-            navigate("/questions");
+            const response = await axios.post(`${BACKEND_URL}/register`,{
+                name: formData.name,
+                rollNum: formData.rollNum,
+                phoneNum: formData.rollNum,
+                department: formData.department,
+                role1: formData.role1,
+                role2: formData.role2,
+            });
+            
+            localStorage.setItem("token", JSON.stringify(response.data.token));
+
+            setLoading(false);
+
+            if(response.status === 200){
+                navigate("/questions");
+            }
+
+        } catch (e) {
+
+            console.log("There was an error" + e);
+
         }
     }
 
     return(
         <Layout>
+            {loading && (
+                <div className="fixed inset-0 bg-black opacity-50 flex justify-center items-center z-50">
+                    <ScaleLoader color="#1AC0E6" loading={loading} />
+                </div>
+            )}
             <div className=" h-full flex justify-center items-center mt-[50px] mb-[80px]">
                 <div className=" bg-[#ffffff] py-[50px] sm:py-[80px] px-0 sm:px-[100px] rounded-[20px] flex flex-col justify-center items-center sm:justify-start sm:items-start">
                     <span className=" text-[30px] sm:text-[50px] font-semibold">Registration</span>
