@@ -7,6 +7,7 @@ import FM from "../../../public/FM.png"
 import VE from "../../../public/VE.png"
 import WD from "../../../public/WD.png"
 import TypewriterComponent from "typewriter-effect";
+//@ts-ignore
 import Typewriter from "typewriter-effect/dist/core";
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";

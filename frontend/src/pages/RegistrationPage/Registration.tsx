@@ -3,7 +3,6 @@ import Layout from "../../component/Layout";
 import { departmentList, roleList } from "./data";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { log } from "console";
 
 function RegistrationPage(){
 

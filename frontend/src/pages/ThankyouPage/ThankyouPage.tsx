@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import Layout from "../../component/Layout";
+//@ts-ignore
 import Typewriter from "typewriter-effect/dist/core";
 
 function ThankyouPage() {
