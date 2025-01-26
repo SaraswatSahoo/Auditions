@@ -111,7 +111,7 @@ function main() {
             else {
                 yield mongoose_1.default.connect(mongoUrl);
             }
-            app.listen(process.env.PORT || 3000, () => {
+            app.listen(3000, () => {
                 console.log("App running on port 3000 !!!");
             });
         }

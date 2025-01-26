@@ -110,6 +110,8 @@ app.put("/rating", auth, async (req, res) => {
 
 })
 
+
+
 async function main(){
     try{
 
@@ -119,7 +121,7 @@ async function main(){
         }else{
             await mongoose.connect(mongoUrl);
         }
-        app.listen(3000, () => {
+        app.listen( process.env.PORT || 3000, () => {
             console.log("App running on port 3000 !!!");
         })
     } catch (e){
