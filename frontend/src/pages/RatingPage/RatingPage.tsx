@@ -20,6 +20,7 @@ function RatingPage(){
     const fieldClassName = " flex flex-col my-[20px]";
     const titleClassName = " text-[30px] font-semibold ";
 
+    //@ts-ignore
     function changeHandler(event: Event, value: number | number[], name: string) {
         setRating((prev) => ({
             ...prev,
